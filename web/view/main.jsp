@@ -12,36 +12,45 @@
         <title>SpaThuyChung</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="../CSS/mainstyle.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../CSS/mainstyle.css?v=1"  type="text/css"/> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
     </head>
     <body>
         <%-- Header --%> 
-        <div class="header">
+        <div class="header row">
              <%-- logo spa --%> 
-            <div class="logospa">
-                <img src="../Img/logo.jpg" alt=""/>
+            <div class="logospa col-md-1">
+                    <%-- Header --%> 
+             <img src="../Img/logo.jpg" alt=""/>
             </div>
              <%-- Menu --%>
+
+             <div class="menu col-md-8 ">
+
+                 <ul class="row">
+                     <li class="col-md-2" >
+                         <i class="fa fa-home" aria-hidden="true"></i>
+                         <a href="index.html">TRANG CHỦ </a>           
+                     </li>
+                     <li class="col-md-2"><a href="gioithieu.html">GIỚI THIỆU</a></li>
+                     <li class="col-md-2"><a href="#">DỊCH VỤ</a></li>
+                     <li class="col-md-2"><a href="sanpham.html">SẢN PHẨM</a></li>
+                     <li class="col-md-2"><a href="contact.html">LIÊN HỆ</a></li>
+
+                 </ul>
+
+             </div>
+             <div class="search col-md-3">
+                 <form class="form-inline">
+                     <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                 </form>
+                 </nav>
+             </div>
              
-	<div class="menu">
-	
-		<ul>
-			<li><a href="index.html">TRANG CHỦ</a></li>
-			<li><a href="gioithieu.html">GIỚI THIỆU</a></li>
-			<li><a href="#">DỊCH VỤ</a></li>
-			<li><a href="sanpham.html">SẢN PHẨM</a></li>
-			<li><a href="contact.html">LIÊN HỆ</a></li>
-	
-		</ul>
-	
-	</div>
-             <div class="search">
-                 <form class="">
-			<input type="text" placeholder="Search.." name="search2">
-                        <button type="submit"><i class="bi bi-search-heart"></i></button>
-		</form>
-	
-	     </div>
             
          </div>   
            <%-- Java Script --%>
