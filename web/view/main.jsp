@@ -4,7 +4,11 @@
     Author     : Le Viet
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.CategoryService"%>
+<%@page import="database.CategoryServiceDBContext"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +16,10 @@
         <title>SpaThuyChung</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="../CSS/mainstyle.css?v=1"  type="text/css"/> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     </head>
     <body>
         <%-- Header --%> 
@@ -24,7 +27,7 @@
             <%-- logo spa --%> 
             <div class="logospa col-md-1">
                 <%-- Header --%> 
-                <img src="../Img/logo.jpg" alt=""/>
+                <img src="${pageContext.request.contextPath}/Img/logo.jpg" alt=""/>
             </div>
             <%-- Menu --%>
 
@@ -33,12 +36,12 @@
                 <ul class="row">
                     <li class="col-md-2" >
                         <i style="color: greenyellow" class="fa fa-home" aria-hidden="true"></i>
-                        <a href="index.html">TRANG CHỦ </a>           
+                        <a href="${pageContext.request.contextPath}/main">TRANG CHỦ </a>           
                     </li>
-                    <li class="col-md-2"><a href="gioithieu.html">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="#">DỊCH VỤ</a></li>
-                    <li class="col-md-2"><a href="sanpham.html">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="contact.html">LIÊN HỆ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
 
                 </ul>
 
@@ -48,7 +51,6 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                </nav>
             </div>
         </div>
 
@@ -61,24 +63,24 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../Img/slide1.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/Img/slide1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>Thúy Chung Spa</h1>
                         <p>Thiên đường của sắc đẹp!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../Img/slide2.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/Img/slide2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                         <h1>Thúy Chung Spa</h1>
-                         <p>Thiên đường của sắc đẹp!</p>
+                        <h1>Thúy Chung Spa</h1>
+                        <p>Thiên đường của sắc đẹp!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../Img/slide3.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/Img/slide3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                         <h1>Thúy Chung Spa</h1>
-                         <p>Thiên đường của sắc đẹp!</p>
+                        <h1>Thúy Chung Spa</h1>
+                        <p>Thiên đường của sắc đẹp!</p>
                     </div>
                 </div>
             </div>
@@ -97,17 +99,60 @@
                 <div class ="anhchung col-sm-6">
                     <h1>Thúy Chung Spa</h1>
                     <p>Thiên đường của sắc đẹp!</p>
-                    <center><img src="../Img/hinhanhspa01.jpg" alt=""/></center>
+                    <center><img src="${pageContext.request.contextPath}/Img/hinhanhspa01.jpg" alt=""/></center>
                 </div>
-                <div class ="col-sm-6 bg-success">
-                    <div>
-                        <input type="text" placeholder="Họ và tên" name="username"/>
-                        <input type="text" placeholder="Số điện thoại" name="dienthoai"/>
-                        
+                <div class ="dichvu col-sm-6">
+                    <div class="datdichvu">
+                        <h1>ĐĂNG KÝ TƯ VẤN</h1>
+                        <form action="categoryservice" method="POST">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Họ Và Tên</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="phonenumber">Số Điện Thoại</label>
+                                    <input type="text" class="form-control" name="phone">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="diachi">Địa chỉ</label>
+                                    <input type="text" class="form-control" name="address">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="dichvu">Chọn dịch vụ cần tư vấn</label>
+                                    <select name="service" class="form-control">
+                                        <c:forEach items="${requestScope.cateServices}" var="ca">
+                                            <option value="${ca.categorysid}">${ca.categorysname}</option>  
+                                        </c:forEach>
+                                                                                 
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg btn-block">ĐĂNG KÝ</button>
+                        </form>
                     </div>
                 </div>
-            </div>
+            </div>        
         </div>
+        <%-- Hinh anh dich vu cua spa--%>
+        <div class= "container-fluid">
+            <%-- Cac san pham chinh--%> 
+        </div>  
+        
+            <%-- footer--%>
+             <!--Footer starts here-->
+        <div class="footer">
+				
+				<h1>Thúy Chung Spa</h1>
+                                <div class="diachicuoi">
+                                    <h6>KCN Định Liên,huyện Yên Định, tỉnh Thanh Hóa</h6>
+				    <i class="fas fa-phone"> 0963170199</i>
+                                    <a href="https://www.facebook.com/thuychungspa"><i class="fa-brands fa-facebook-f"></i></a>                                  
+                                </div>
+	</div>
+       
         <%-- Java Script --%>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

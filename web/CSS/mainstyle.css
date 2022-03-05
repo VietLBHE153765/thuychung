@@ -38,18 +38,50 @@ and open the template in the editor.
     src: url('../fonts/VL Ambassador/VLAMBASSADOR.OTF');
     font-family: 'a';
 }
-h1,p{
+.carousel-caption h1,p{
     color: #deb40b;
     font-family: 'a';
     text-align: center;
 }
-.gioithieu{
-    background-color: #a5ff4d;
-}
 .gioithieu h1{
+     color: #deb40b;
     padding-top:20px;
+    font-family: 'a';
+    text-align: center;
+}
+.gioithieu p {
+    font-family: 'a';
 }
 .gioithieu img{
     max-width: 400px;
     padding-bottom: 30px;
+}
+.dichvu{
+    background-color: #a5ff4d;
+}
+.datdichvu{
+    font-family: monospace;
+    color: black;
+    padding-top: 100px;
+}
+.footer{
+  background-color:black;
+  text-align: center;
+}
+.footer h1{
+   color: #deb40b;
+    padding-top:20px;
+    font-family: 'a';
+}
+.diachicuoi{
+    color: white;
+}
+.diachicuoi i{
+  color: #3885b5;
+}
+.diachicuoi a{
+    padding-left: 40px;
+}
+.diachicuoi h6{
+    font-family: transform;
 }
