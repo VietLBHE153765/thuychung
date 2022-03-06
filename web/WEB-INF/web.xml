@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>CategoryServiceController</servlet-name>
-        <servlet-class>controller.CategoryServiceController</servlet-class>
+        <servlet-class>controller.CategoryController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>introduceController</servlet-name>
@@ -19,6 +19,10 @@
     <servlet>
         <servlet-name>productController</servlet-name>
         <servlet-class>controller.productController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>homeController</servlet-name>
+        <servlet-class>controller.homeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>productController</servlet-name>
         <url-pattern>/sanpham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeController</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

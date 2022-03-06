@@ -5,6 +5,7 @@
  */
 package controller;
 
+import database.CategoryProductDBContext;
 import database.CategoryServiceDBContext;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,20 +13,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.CategoryProduct;
 import model.CategoryService;
 
 /**
  *
  * @author Le Viet
  */
-public class CategoryServiceController extends HttpServlet {
+public class CategoryController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoryServiceDBContext db = new CategoryServiceDBContext();
-        ArrayList<CategoryService> cateServices = db.getCateServices();
-        request.setAttribute("cateServices",cateServices);
-        request.getRequestDispatcher("view/main.jsp").forward(request, response);
+        CategoryProductDBContext pdb = new CategoryProductDBContext();
+        ArrayList<CategoryProduct> cateProducts = pdb.getCateProducts();
+        request.setAttribute("cateProducts",cateProducts);
+        request.getRequestDispatcher("view/sanpham.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -32,7 +32,7 @@
                 <ul class="row">
                     <li class="col-md-2" >
                         <i style="color: greenyellow" class="fa fa-home" aria-hidden="true"></i>
-                        <a href="${pageContext.request.contextPath}/main">TRANG CHỦ </a>           
+                        <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
                      <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
