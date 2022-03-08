@@ -5,6 +5,7 @@
  */
 package controller;
 
+import database.CategoryProductDBContext;
 import database.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.CategoryProduct;
 import model.Product;
 
 /**
@@ -20,23 +22,41 @@ import model.Product;
  * @author Le Viet
  */
 public class productController extends HttpServlet {
+      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ProductDBContext db = new ProductDBContext();
+        int pagesize =6;
+        String page = request.getParameter("page");
+         if(page ==null || page.trim().length()==0){
+             page ="1";
+         }
+        int pageindex = Integer.parseInt(page); 
+        ArrayList<Product> products = db.getProducts(pageindex,pagesize);
+        CategoryProductDBContext pdb = new CategoryProductDBContext();
+        ArrayList<CategoryProduct> cateProducts = pdb.getCateProducts();
+        request.setAttribute("cateProducts",cateProducts);
+        request.setAttribute("products", products);
+        int count = db.count();
+        int totalpage = (count%pagesize==0)?(count/pagesize):(count/pagesize)+1;
+        request.setAttribute("totalpage", totalpage);
+        request.setAttribute("pageindex", pageindex);
+        request.getRequestDispatcher("view/sanpham.jsp").forward(request, response);
+    }
 
    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDBContext db = new ProductDBContext();
-        ArrayList<Product> products = db.getProducts();
-        request.setAttribute("products", products);
-         request.getRequestDispatcher("view/sanpham.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+       
+        processRequest(request, response);
     }
 
     

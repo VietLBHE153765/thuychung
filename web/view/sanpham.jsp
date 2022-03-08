@@ -14,9 +14,10 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sanphamstyle.css?v=1"  type="text/css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="${pageContext.request.contextPath}/js/paggerProduct.js" type="text/javascript"></script>
         <title>Sản phẩm</title>
     </head>
     <body>
@@ -54,81 +55,89 @@
         
                <%-- List san pham --%> 
                
-               <div class="container-fluid">
-                    <div class="row">
-                    <div class="col-md-3">
-                        <h3>List Categories</h3>
-                       
-                            <c:forEach items="${requestScope.cateProducts}" var="c">
-                                ${c.name}
-                                
-                            </c:forEach>
-                        
-                    </div>
-                        
-                        <div class="col-md-9">
-                              <div
-                            class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
-                            >
-                            <c:forEach items="${requestScope.products}" var="p">
-                                <div class="col mb-5">
-                                    ${P.id}
-                                    <div class="card h-100">
-                                        <!-- Sale badge-->
-                                        <div
-                                            class="badge bg-dark text-white position-absolute"
-                                            style="top: 0.5rem; right: 0.5rem"
-                                            >
-                                            Sale
-                                        </div>
-                                        <!-- Product image-->
-                                        <a href="#">
-                                        <img
-                                            class="card-img-top"
-                                            src="${pageContext.request.contextPath}${p.image}"
-                                            alt="..."
-                                            />
-                                        </a>
-                                        <!-- Product details-->
-                                        <div class="card-body p-4">
-                                            <div class="text-center">
-                                                <!-- Product name-->
-                                                <h5 class="fw-bolder">${p.productname}</h5>
-                                                <!-- Product reviews-->
-                                                <div
-                                                    class="d-flex justify-content-center small text-warning mb-2"
-                                                    >
-                                                    <div class="bi-star-fill"></div>
-                                                    <div class="bi-star-fill"></div>
-                                                    <div class="bi-star-fill"></div>
-                                                    <div class="bi-star-fill"></div>
-                                                    <div class="bi-star-fill"></div>
-                                                </div>
-                                                <!-- Product price-->
-                                                <span class="text-muted text-decoration-line-through"
-                                                      >$20.00</span
-                                                >
-                                                $${p.price}
-                                            </div>
-                                        </div>
-                                        <!-- Product actions-->
-                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center">
-                                                <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
-                                                   >Add to cart</a
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </div>
-                        </div>
-                 
-                   
-               </div>
-               </div>
+               <div class="container-fluid sanpham">
+                   <div class="row">
+                       <div class="col-md-3">
+                           <div class="card" style="width: 18rem;">
+                               <div class="card-header">
+                                   Loại sản phẩm
+                               </div>
+                               <ul class="list-group list-group-flush">
+                                   <c:forEach items="${requestScope.cateProducts}" var="c">
+                                       <li class="list-group-item"> ${c.name}</li>
+
+                                   </c:forEach>
+                               </ul>
+                           </div>
+                       </div>
+                           <div class="col-md-9 product">
+                               <div
+                                   class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
+                                   >
+                                   <c:forEach items="${requestScope.products}" var="p">
+                                       <div class="col mb-5">
+
+                                           <div class="card h-100">
+                                               <!-- Sale badge-->
+                                               <div
+                                                   class="badge bg-dark text-white position-absolute"
+                                                   style="top: 0.5rem; right: 0.5rem"
+                                                   >
+                                                   Sale
+                                               </div>
+                                               <!-- Product image-->
+                                               <a href="#">
+                                                   <img
+                                                       class="card-img-top"
+                                                       src="${pageContext.request.contextPath}${p.image}"
+                                                       alt="..."
+                                                       />
+                                               </a>
+                                               <!-- Product details-->
+                                               <div class="card-body p-4">
+                                                   <div class="text-center">
+                                                       <!-- Product name-->
+                                                       <h5 class="fw-bolder">${p.productname}</h5>
+                                                       <!-- Product reviews-->
+                                                       <div
+                                                           class="d-flex justify-content-center small text-warning mb-2"
+                                                           >
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                       </div>
+                                                       <!-- Product price-->
+                                                       <span class="text-muted text-decoration-line-through"
+                                                             >$20.00</span
+                                                       >
+                                                       $${p.price}
+                                                   </div>
+                                               </div>
+                                               <!-- Product actions-->
+                                               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                   <div class="text-center">
+                                                       <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
+                                                          >Add to cart</a
+                                                       >
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+
+
+                       </div>
+                   </div>
                
+               <div id="pagger"> </div>
+               
+                   <script>
+                       pagger("pagger",${pageindex},${totalpage},3);
+                   </script>
                
                
 
