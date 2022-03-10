@@ -17,8 +17,10 @@
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="${pageContext.request.contextPath}/js/paggerProduct.js" type="text/javascript"></script>
+       
+        <script src="${pageContext.request.contextPath}/js/paggerProduct.js?v=1" type="text/javascript"></script>
         <title>Sản phẩm</title>
+
     </head>
     <body>
         <%-- Header --%> 
@@ -32,26 +34,37 @@
 
             <div class="menu col-md-8 ">
 
-                <ul class="row">
-                    <li class="col-md-2" >
+                <ul class="row ">
+                    <li class="col-md-2 href " >
                         <i style="color: greenyellow" class="fa fa-home" aria-hidden="true"></i>
                         <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
-                      <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
+                    <li class="col-md-2 href"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
+                    <li class="col-md-2 href"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2 href"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
+                    <li class="col-md-2 href"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
                 </ul>
 
             </div>
             <div class="search col-md-3">
-                <form class="form-inline">
+                 
+                <div class="">
+                     <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-                </nav>
+                     </form>
+                </div>
+                
+                
             </div>
         </div>
+                <div class="giohang">
+                <a class="btn btn-outline-success" href="giohang">
+                   <i class="fas fa-shopping-cart"></i>
+                    Giỏ hàng
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>
+                </a>
+               </div>
         
                <%-- List san pham --%> 
                
@@ -59,12 +72,12 @@
                    <div class="row">
                        <div class="col-md-3">
                            <div class="card" style="width: 18rem;">
-                               <div class="card-header">
+                               <div class="card-header listcategory">
                                    Loại sản phẩm
                                </div>
                                <ul class="list-group list-group-flush">
                                    <c:forEach items="${requestScope.cateProducts}" var="c">
-                                       <li class="list-group-item"> ${c.name}</li>
+                                       <li class="list-group-item"><a href="${pageContext.request.contextPath}/loaisanpham?id=${c.cid}">${c.name}</a> </li>
 
                                    </c:forEach>
                                </ul>
@@ -78,15 +91,8 @@
                                        <div class="col mb-5">
 
                                            <div class="card h-100">
-                                               <!-- Sale badge-->
-                                               <div
-                                                   class="badge bg-dark text-white position-absolute"
-                                                   style="top: 0.5rem; right: 0.5rem"
-                                                   >
-                                                   Sale
-                                               </div>
                                                <!-- Product image-->
-                                               <a href="#">
+                                               <a href="${pageContext.request.contextPath}/chitietsanpham?id=${p.productid}">
                                                    <img
                                                        class="card-img-top"
                                                        src="${pageContext.request.contextPath}${p.image}"
@@ -95,7 +101,7 @@
                                                </a>
                                                <!-- Product details-->
                                                <div class="card-body p-4">
-                                                   <div class="text-center">
+                                                   <div class="text-center productname">
                                                        <!-- Product name-->
                                                        <h5 class="fw-bolder">${p.productname}</h5>
                                                        <!-- Product reviews-->
@@ -109,31 +115,30 @@
                                                            <div class="bi-star-fill"></div>
                                                        </div>
                                                        <!-- Product price-->
-                                                       <span class="text-muted text-decoration-line-through"
-                                                             >$20.00</span
-                                                       >
-                                                       $${p.price}
+                                                       
+                                                       <div id="price">${p.price} (VND)</div>
                                                    </div>
                                                </div>
                                                <!-- Product actions-->
                                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
-                                                       <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
-                                                          >Add to cart</a
+                                                       <a class="btn btn-outline-success mt-auto" href="themsanpham?Id=${p.productid}"
+                                                          >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
                                                        >
                                                    </div>
                                                </div>
                                            </div>
                                        </div>
                                    </c:forEach>
+                                   
                                </div>
+                                     <div id="pagger"> </div>  
                            </div>
-
-
+                              
                        </div>
                    </div>
                
-               <div id="pagger"> </div>
+              
                
                    <script>
                        pagger("pagger",${pageindex},${totalpage},3);

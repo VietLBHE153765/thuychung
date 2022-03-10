@@ -24,6 +24,14 @@
         <servlet-name>homeController</servlet-name>
         <servlet-class>controller.homeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>selectproduct</servlet-name>
+        <servlet-class>controller.selectproduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>productdetailcontroller</servlet-name>
+        <servlet-class>controller.productdetailcontroller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>selectproduct</servlet-name>
+        <url-pattern>/loaisanpham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>productdetailcontroller</servlet-name>
+        <url-pattern>/chitietsanpham</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -29,7 +29,7 @@ public class CategoryProductDBContext extends DBContext{
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 CategoryProduct category = new CategoryProduct();
-                category.setCatepid(rs.getInt("categoryPID"));
+                category.setCid(rs.getInt("categoryPID"));
                 category.setName(rs.getString("categoryname"));
                 cats.add(category);
             }

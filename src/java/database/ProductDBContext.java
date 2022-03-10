@@ -45,7 +45,7 @@ public class ProductDBContext extends DBContext{
                 d.setPrice(rs.getInt("price"));
                 d.setQuantity(rs.getInt("quantity"));
                 CategoryProduct c = new CategoryProduct();
-                c.setName(rs.getString("categoryPID"));
+                c.setCid(rs.getInt("categoryPID"));
                 d.setCateProduct(c);
                 products.add(d);
             }
@@ -72,5 +72,70 @@ public class ProductDBContext extends DBContext{
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -1 ;
+    }
+      public ArrayList<Product> getProductByCategoryID( int CategoryID){
+             ArrayList<Product> products = new ArrayList<>();
+        try {
+  
+            String sql = "SELECT [productID]\n" +
+                            "      ,[productname]\n" +
+                            "      ,[image]\n" +
+                            "      ,[price]\n" +
+                            "      ,[quantity]\n" +
+                            "      ,[categoryPID]\n" +
+                            "  FROM [Product]\n" +
+                            "  WHERE categoryPID =?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, CategoryID);
+          
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                 Product d = new Product();
+                d.setProductid(rs.getInt("productID"));
+                d.setProductname(rs.getString("productname"));
+                d.setImage(rs.getString("image"));
+                d.setPrice(rs.getInt("price"));
+                d.setQuantity(rs.getInt("quantity"));
+                CategoryProduct c = new CategoryProduct();
+                c.setCid(rs.getInt("categoryPID"));
+                d.setCateProduct(c);
+                products.add(d);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products ;
+    }
+       public Product getProductByID( int id){
+        try {
+  
+            String sql = "SELECT [productID]\n" +
+                            "      ,[productname]\n" +
+                            "      ,[image]\n" +
+                            "      ,[price]\n" +
+                            "      ,[quantity]\n" +
+                            "      ,[categoryPID]\n" +
+                            "  FROM [Product]\n" +
+                            "  WHERE productID =?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
+          
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                 Product d = new Product();
+                d.setProductid(rs.getInt("productID"));
+                d.setProductname(rs.getString("productname"));
+                d.setImage(rs.getString("image"));
+                d.setPrice(rs.getInt("price"));
+                d.setQuantity(rs.getInt("quantity"));
+                CategoryProduct c = new CategoryProduct();
+                c.setCid(rs.getInt("categoryPID"));
+                d.setCateProduct(c);
+                return d;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null ;
     }
 }

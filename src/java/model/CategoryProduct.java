@@ -10,15 +10,15 @@ package model;
  * @author Le Viet
  */
 public class CategoryProduct {
-    private int Catepid;
+    private int cid;
     private String name;
 
-    public int getCatepid() {
-        return Catepid;
+    public int getCid() {
+        return cid;
     }
 
-    public void setCatepid(int Catepid) {
-        this.Catepid = Catepid;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getName() {
@@ -28,5 +28,6 @@ public class CategoryProduct {
     public void setName(String name) {
         this.name = name;
     }
+
     
 }
