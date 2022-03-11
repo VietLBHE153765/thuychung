@@ -40,6 +40,8 @@ public class productController extends HttpServlet {
         request.setAttribute("products", products);
         request.setAttribute("totalpage", totalpage);
         request.setAttribute("pageindex", pageindex);
+        //get /sanpham to session
+        request.getSession().setAttribute("urlhistory", "sanpham");
         request.getRequestDispatcher("view/sanpham.jsp").forward(request, response);
     }
 

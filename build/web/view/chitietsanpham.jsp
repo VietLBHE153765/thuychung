@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sanpham</title>
+        <title>chitietsanpham</title>
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
@@ -62,14 +62,22 @@
                 <div class ="col-sm-6 sanphamimg">
                     <img src="${pageContext.request.contextPath}${product.image}" alt=""/>
                 </div>
-                <div class ="col-sm-6">
-                    <div class="chitietsanpham">
-                        <h1 >${product.productname}</h1>
+                <div class ="col-sm-6 chitietsanpham">
+                    <h1 >${product.productname}</h1>
                         <h4>Giá: ${product.price} (VNĐ)</h4>
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class=" row">
+                        
+                          <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
-                                                       <a class="btn btn-success btn-lg" href="themsanpham?Id=${p.productid}"
+                                                       <a class="btn btn-success btn-lg" href="addcart?Id=${product.productid}"
                                                           >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
+                                                       >
+                                                   </div>
+                           </div>
+                          <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                   <div class="text-center">
+                                                       <a class="btn btn-success btn-lg" href="#"
+                                                          >Mua sản phẩm</a
                                                        >
                                                    </div>
                                                </div>

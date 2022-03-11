@@ -1,15 +1,15 @@
 <%-- 
-    Document   : productdetail
-    Created on : Mar 10, 2022, 4:03:54 PM
+    Document   : giohang
+    Created on : Mar 11, 2022, 11:37:47 PM
     Author     : Le Viet
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>chitietsanpham</title>
+        <title>Gio hang</title>
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
@@ -24,7 +24,7 @@
             <%-- logo spa --%> 
             <div class="logospa col-md-1">
                 <%-- Header --%> 
-                <img src="../Img/logo.jpg" alt=""/>
+                <img src="Img/logo.jpg" alt=""/>
             </div>
             <%-- Menu --%>
 
@@ -50,43 +50,49 @@
             </div>
                 
         </div>
-               <div class="giohang">
-                <a class="btn btn-outline-success" href="giohang">
-                   <i class="fas fa-shopping-cart"></i>
-                    Giỏ hàng
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>
-                </a>
-               </div>
-         <div class= "container-fluid">
-            <div class="row">
-                <div class ="col-sm-6 sanphamimg">
-                    <img src="${pageContext.request.contextPath}${product.image}" alt=""/>
-                </div>
-                <div class ="col-sm-6 chitietsanpham">
-                    <h1 >${product.productname}</h1>
-                        <h4>Giá: ${product.price} (VNĐ)</h4>
-                    <div class=" row">
-                        
-                          <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                                   <div class="text-center">
-                                                       <a class="btn btn-success btn-lg" href="addcart?Id=${product.productid}"
-                                                          >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
-                                                       >
-                                                   </div>
-                           </div>
-                          <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                                   <div class="text-center">
-                                                       <a class="btn btn-success btn-lg" href="#"
-                                                          >Mua sản phẩm</a
-                                                       >
-                                                   </div>
-                                               </div>
-                        
-                     </div> 
-                </div>
-            </div>        
-         </div>
-        
+    
+               
+                <div class= "container-fluid" style="min-height: 750px">
+                    <c:choose>
+                        <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
+                            <h4>Giỏ hàng của bạn đang trống</h4>
+                        </c:when>
+                        <c:otherwise>
+                             <h2>Giỏ hàng của bạn</h2>   
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tên Sản Phẩm</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Tổng tiền</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${carts}" var="c">
+                            <form action="updatequantity" method="GET">
+                                 <tr>
+                                 <input type="hidden" name="productid" value="${c.value.product.productid}"/>         
+                                <th scope="row">${c.value.product.productid}</th>
+                                <td>${c.value.product.productname}</td>    
+                                <td><img src="${pageContext.request.contextPath}${c.value.product.image}" alt="" width="100px"/></td>
+                                <td>${c.value.product.price}</td>      
+                                <td><input onchange="this.form.submit()" type="number"  name="quantity" value="${c.value.quantity}"/></td>
+                                <td>${c.value.product.price * c.value.quantity}</td>
+                                <td><a  href="delete?id=${c.value.product.productid}" class="btn btn-outline-info"><i class="fa-solid fa-trash"></i></a></td>
+                                 </tr>
+                            </form>
+                           </c:forEach> 
+                        </tbody>
+                    </table>
+                             <h3>Tổng số tiền: ${totalmoney} VND</h3>     
+                        </c:otherwise>
+                    </c:choose>
+                 </div>
+
         
         
         

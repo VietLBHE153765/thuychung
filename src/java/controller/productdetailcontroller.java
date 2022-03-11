@@ -30,6 +30,7 @@ public class productdetailcontroller extends HttpServlet {
         ProductDBContext db = new ProductDBContext();
         Product product = db.getProductByID(id);
         request.setAttribute("product", product);
+        request.getSession().setAttribute("urlhistory", "chitietsanpham?id="+id);
         request.getRequestDispatcher("view/chitietsanpham.jsp").forward(request, response);
     }
 

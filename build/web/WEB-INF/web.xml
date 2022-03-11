@@ -32,6 +32,22 @@
         <servlet-name>productdetailcontroller</servlet-name>
         <servlet-class>controller.productdetailcontroller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>controller.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>shoppingcartController</servlet-name>
+        <servlet-class>controller.shoppingcartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteController</servlet-name>
+        <servlet-class>controller.DeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatequantityProductController</servlet-name>
+        <servlet-class>controller.updatequantityProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>productdetailcontroller</servlet-name>
         <url-pattern>/chitietsanpham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/addcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>shoppingcartController</servlet-name>
+        <url-pattern>/giohang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteController</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatequantityProductController</servlet-name>
+        <url-pattern>/updatequantity</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

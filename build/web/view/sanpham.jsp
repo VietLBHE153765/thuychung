@@ -122,7 +122,7 @@
                                                <!-- Product actions-->
                                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
-                                                       <a class="btn btn-outline-success mt-auto" href="themsanpham?Id=${p.productid}"
+                                                       <a class="btn btn-outline-success mt-auto" href="addcart?Id=${p.productid}"
                                                           >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
                                                        >
                                                    </div>
