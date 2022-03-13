@@ -76,7 +76,7 @@
                            </div>
                           <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
-                                                       <a class="btn btn-success btn-lg" href="#"
+                                                       <a class="btn btn-success btn-lg" href="muasanpham?Id=${product.productid}"
                                                           >Mua sản phẩm</a
                                                        >
                                                    </div>

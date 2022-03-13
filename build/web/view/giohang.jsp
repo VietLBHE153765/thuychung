@@ -14,6 +14,8 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sanphamstyle.css?v=1"  type="text/css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/giohang.css?v=1"  type="text/css"/>
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,7 +61,7 @@
                         </c:when>
                         <c:otherwise>
                              <h2>Giỏ hàng của bạn</h2>   
-                    <table class="table table-striped">
+                    <table class="table table-striped tableproduct">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -80,7 +82,9 @@
                                 <td>${c.value.product.productname}</td>    
                                 <td><img src="${pageContext.request.contextPath}${c.value.product.image}" alt="" width="100px"/></td>
                                 <td>${c.value.product.price}</td>      
-                                <td><input onchange="this.form.submit()" type="number"  name="quantity" value="${c.value.quantity}"/></td>
+                                <td>
+                                    <span><input onchange="this.form.submit()" type="number"  name="quantity" value="${c.value.quantity}"/></span>
+                                </td>
                                 <td>${c.value.product.price * c.value.quantity}</td>
                                 <td><a  href="delete?id=${c.value.product.productid}" class="btn btn-outline-info"><i class="fa-solid fa-trash"></i></a></td>
                                  </tr>
@@ -88,7 +92,9 @@
                            </c:forEach> 
                         </tbody>
                     </table>
-                             <h3>Tổng số tiền: ${totalmoney} VND</h3>     
+                             <h3>Tổng số tiền: ${totalmoney} VND</h3>
+                             <a href="sanpham" class="btn btn-success btn-lg btn-block">Tiếp tục mua sắm</a>
+                             <a href="thanhtoan" class="btn btn-danger btn-lg btn-block">Thanh toán</a>
                         </c:otherwise>
                     </c:choose>
                  </div>

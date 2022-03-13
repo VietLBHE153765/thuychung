@@ -31,10 +31,19 @@ public class updatequantityProductController extends HttpServlet {
             carts = new LinkedHashMap<>();
         }
         if(carts.containsKey(productid)){
-            carts.get(productid).setQuantity(quantity);
+            if(quantity>1){
+                carts.get(productid).setQuantity(quantity);
+            }else{
+                carts.get(productid).setQuantity(1);
+            }
+            
         }
          session.setAttribute("carts", carts);
-        response.sendRedirect("giohang");
+         String urlhistory = (String) session.getAttribute("urlhistory2");
+         if(urlhistory ==null){
+             urlhistory = "giohang";
+         }
+         response.sendRedirect(urlhistory);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

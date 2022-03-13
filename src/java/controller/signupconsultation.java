@@ -7,43 +7,42 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cart;
 
 /**
  *
  * @author Le Viet
  */
-public class shoppingcartController extends HttpServlet {
+public class signupconsultation extends HttpServlet {
 
-    
- 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-        if(carts ==null){
-            carts = new LinkedHashMap<>();
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet signupconsultation</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet signupconsultation at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        //carculator the total price
-        double totalMoney =0;
-        for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
-            Integer productID = c.getKey();
-            Cart cart = c.getValue();
-            totalMoney += cart.getQuantity()* cart.getProduct().getPrice();
-        }
-        request.setAttribute("totalmoney", totalMoney);
-        request.getSession().setAttribute("totalmoney", totalMoney);
-        request.setAttribute("carts", carts);
-        request.getSession().setAttribute("urlhistory2","giohang");
-        request.getRequestDispatcher("view/giohang.jsp").forward(request, response);
-        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

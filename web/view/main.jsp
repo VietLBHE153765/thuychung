@@ -104,21 +104,24 @@
                 <div class ="dichvu col-sm-6">
                     <div class="datdichvu">
                         <h1>ĐĂNG KÝ TƯ VẤN</h1>
-                        <form action="categoryservice" method="POST">
+                        <form action="dangkytuvan" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Họ Và Tên</label>
-                                    <input type="text" class="form-control" name="username">
+                                    <input type="text" class="form-control" name="name">
+                                    <span style="color: red">${messagename}</span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phonenumber">Số Điện Thoại</label>
-                                    <input type="text" class="form-control" name="phone">
+                                    <input type="text" class="form-control" name="phonenumber">
+                                     <span>${messagephone}</span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diachi">Địa chỉ</label>
                                     <input type="text" class="form-control" name="address">
+                                     <span>${messageaddress}</span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="dichvu">Chọn dịch vụ cần tư vấn</label>
