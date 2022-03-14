@@ -104,25 +104,30 @@
                        <div class="form-row">
                            <div class="form-group col-md-6">
                                <label for="inputname">Họ và tên</label>
-                               <input type="text" class="form-control" name="name">
-                                <span>${messagename}</span>
+                               <input type="text" class="form-control" name="name" value="${messagename}">
                            </div>
                            <div class="form-group col-md-6">
                                <label for="inputphone">Số điện thoại</label>
-                               <input type="text" class="form-control" name="phonenumber">
-                                <span>${messagephone}</span>
+                               <input type="text" class="form-control" name="phonenumber" value="${messagephone}">
                            </div>
                        </div>
                        <div class="form-group">
                            <label for="inputAddress">Địa chỉ</label>
-                           <input type="text" class="form-control" name="address" placeholder="Địa chỉ...">
-                            <span>${messageaddress}</span>
+                           <input type="text" class="form-control" value="${messageaddress}"name="address" placeholder="Địa chỉ...">
                        </div>
                        <div class="form-group">
                            <label for="Note">Bạn có muốn nhắn gửi điều gì với chúng tôi không...</label>
-                           <textarea  name="note"class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                           <textarea  name="note"class="form-control" id="exampleFormControlTextarea1" rows="3">${messagenote}</textarea>
                        </div>
-                       <button type="submit" class="btn btn-success btn-lg btn-block">Đặt hàng</button>
+                       <div>
+                           <span style="color:dodgerblue;margin-bottom: 30px">
+                               Bạn hãy xác nhận kỹ thông tin của mình trước khi đặt hàng nhé !!!
+                           </span> 
+                       </div>
+                       <button type="submit" class="btn btn-success btn-lg btn-block">Đặt hàng</button> 
+                       <span style="color: red"> ${message}</span>
+                       <span style="color: tomato"> ${messagesuccess}</span>
+                       
                    </form>
             </div>
             </div>

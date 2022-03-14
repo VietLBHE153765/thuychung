@@ -5,6 +5,7 @@
  */
 package controller;
 
+import Validate.validateinforcustomer;
 import database.ProductDBContext;
 import database.customerDBContext;
 import database.orderDBContext;
@@ -81,46 +82,59 @@ public class checkoutController extends HttpServlet {
       String phonenumber = request.getParameter("phonenumber");
       String address = request.getParameter("address");
       String note =  request.getParameter("note");
-     
+      String confirm = request.getParameter("confirm");
       
-      //add customer to database and return id of customer
-       Customer cu = new Customer();
-       cu.setName(name);
-       cu.setPhone(phonenumber);
-       cu.setAddress(address);
-        customerDBContext cdb = new customerDBContext();
-        HttpSession session = request.getSession();
-         Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-        if(carts ==null){
-            carts = new LinkedHashMap<>();
+        validateinforcustomer check = new validateinforcustomer();
+        if (check.checkname(name) == false || check.checkPhone(phonenumber) == false || check.checkaddress(address) == false) {
+            request.setAttribute("messagename", name);
+            request.setAttribute("messagephone", phonenumber);
+            request.setAttribute("messageaddress", address);
+            request.setAttribute("messagenote", note);
+            request.setAttribute("message", "Vui lòng kiểm tra lại thông tin của bạn");
+            request.getRequestDispatcher("view/thanhtoan.jsp").forward(request, response);
+        }else {
+
+            //add customer to database and return id of customer
+            Customer cu = new Customer();
+            cu.setName(name);
+            cu.setPhone(phonenumber);
+            cu.setAddress(address);
+            customerDBContext cdb = new customerDBContext();
+            HttpSession session = request.getSession();
+            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+            if (carts == null) {
+                carts = new LinkedHashMap<>();
+            }
+            //carculator the total price
+            double totalprice = 0;
+            for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
+                Integer productID = c.getKey();
+                Cart cart = c.getValue();
+                totalprice += cart.getQuantity() * cart.getProduct().getPrice();
+            }
+            int id = (Integer) cdb.createCustomerReturnID(cu); // id of customer 
+
+            Order order = new Order();
+            order.setTotalprice(totalprice);
+            order.setNote(note);
+            order.setCustomerid(id);
+            System.out.println(order);
+            orderDBContext odb = new orderDBContext();
+            int orderID = (Integer) odb.createOrderReturnID(order);
+            //add to order details
+            new orderdetailDBContext().addCarts(orderID, carts);
+            //clear cart in session
+            session.removeAttribute("carts");
+            request.setAttribute("messagesuccess", "Đã đặt hàng thành công. Nhân viên của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.Xin trân thành cảm ơn quý khách!");
+            request.getRequestDispatcher("view/thanhtoan.jsp").forward(request, response);
         }
-        //carculator the total price
-        double totalprice =0;
-        for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
-            Integer productID = c.getKey();
-            Cart cart = c.getValue();
-            totalprice += cart.getQuantity()* cart.getProduct().getPrice();
-        }
-        int id = (Integer) cdb.createCustomerReturnID(cu); // id of customer 
-         
-        Order order = new Order();
-        order.setTotalprice(totalprice);
-        order.setNote(note);
-        order.setCustomerid(id);
-        System.out.println(order);
-        orderDBContext odb = new orderDBContext();
-        int orderID = (Integer)odb.createOrderReturnID(order);
-        //add to order details
-        new orderdetailDBContext().addCarts(orderID,carts);
-        //clear cart in session
-        session.removeAttribute("carts");
+      
+      
+      
+     
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";
