@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>validateLoginFilter</filter-name>
+        <filter-class>Validate.validateLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>validateLoginFilter</filter-name>
+        <servlet-name>logincontroller</servlet-name>
+    </filter-mapping>
     <servlet>
         <servlet-name>CategoryServiceController</servlet-name>
         <servlet-class>controller.CategoryController</servlet-class>
@@ -54,11 +62,15 @@
     </servlet>
     <servlet>
         <servlet-name>signupconsultation</servlet-name>
-        <servlet-class>controller.signupconsultation</servlet-class>
+        <servlet-class>controller.customeradvise</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BuyProductController</servlet-name>
         <servlet-class>controller.BuyProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logincontroller</servlet-name>
+        <servlet-class>controller.logincontroller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
@@ -119,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>BuyProductController</servlet-name>
         <url-pattern>/muasanpham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logincontroller</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

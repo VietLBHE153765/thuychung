@@ -13,6 +13,7 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/loginstyle.css?v=1"  type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,7 +24,7 @@
             <%-- logo spa --%> 
             <div class="logospa col-md-1">
                 <%-- Header --%> 
-                <img src="../Img/logo.jpg" alt=""/>
+                <img src="Img/logo.jpg" alt=""/>
             </div>
             <%-- Menu --%>
 
@@ -48,7 +49,44 @@
                 </form>
             </div>
         </div>
+                
+                
+                
+                <div class="Login-form">
+                        <div id="login">
+        <h1>Spa Thúy Chung</h1>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="login" method="POST">
+                            <h3 style="font-weight: 600"class="text-center text-info">ĐĂNG NHẬP</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Tên đăng nhập:</label><br>
+                                <input type="text" name="username" id="username" class="form-control" value="">
+                                <span style="color: red">${usermessage}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Mật khẩu:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                                <span style="color: red">${passmessage}</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="ĐĂNG NHẬP">
+                                <span style="color: red">${message}</span>
+                            </div>
 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    
+                    
+                </div>
         
         
         
@@ -56,6 +94,9 @@
         
         
         
+                
+                
+                
          <%-- footer--%>
              <!--Footer starts here-->
         <div class="footer">

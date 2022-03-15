@@ -39,13 +39,14 @@
                         <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/daotao">ĐÀO TẠO</a></li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/login"><i class="fas fa-user"></i> Login</a></li>
 
                 </ul>
 
             </div>
+                   
             <div class="search col-md-3">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
@@ -108,32 +109,32 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Họ Và Tên</label>
-                                    <input type="text" class="form-control" name="name">
-                                    <span style="color: red">${messagename}</span>
+                                    <input type="text" class="form-control" name="name" value="${messagename}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phonenumber">Số Điện Thoại</label>
-                                    <input type="text" class="form-control" name="phonenumber">
-                                     <span>${messagephone}</span>
+                                    <input type="text" class="form-control" name="phonenumber" value="${messagephone}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diachi">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="address">
-                                     <span>${messageaddress}</span>
+                                    <input type="text" class="form-control" name="address" value="${messageaddress}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="dichvu">Chọn dịch vụ cần tư vấn</label>
                                     <select name="service" class="form-control">
                                         <c:forEach items="${requestScope.cateServices}" var="ca">
-                                            <option value="${ca.categorysid}">${ca.categorysname}</option>  
+                                            <option value="${ca.categorysid}">${ca.categorysname}${service}</option>  
                                         </c:forEach>
                                                                                  
                                     </select>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success btn-lg btn-block">ĐĂNG KÝ</button>
+                            <span style="color: red">${message}</span>
+                            <span style="color: blue">${messagethank}</span>
+                                
                         </form>
                     </div>
                 </div>

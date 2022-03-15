@@ -38,6 +38,11 @@ and open the template in the editor.
     src: url('../fonts/VL Ambassador/VLAMBASSADOR.OTF');
     font-family: 'a';
 }
+#login h1{
+     color: #deb40b;
+     font-family: 'a';
+    text-align: center;
+}
 .carousel-caption h1,p{
     color: #deb40b;
     font-family: 'a';
