@@ -72,6 +72,10 @@
         <servlet-name>logincontroller</servlet-name>
         <servlet-class>controller.logincontroller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>manageSpaController</servlet-name>
+        <servlet-class>controller.manageSpaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>logincontroller</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageSpaController</servlet-name>
+        <url-pattern>/quanly</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

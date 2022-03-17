@@ -63,12 +63,12 @@
                             <h3 style="font-weight: 600"class="text-center text-info">ĐĂNG NHẬP</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Tên đăng nhập:</label><br>
-                                <input type="text" name="username" id="username" class="form-control" value="">
+                                <input type="text" name="username" id="username" class="form-control" value="${username}">
                                 <span style="color: red">${usermessage}</span>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Mật khẩu:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                                 <span style="color: red">${passmessage}</span>
                             </div>
                             <div class="form-group">

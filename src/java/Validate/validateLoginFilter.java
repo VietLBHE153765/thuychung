@@ -38,21 +38,7 @@ public class validateLoginFilter implements Filter {
         if (debug) {
             log("validateLoginFilter:DoBeforeProcessing");
         }
-         String username = request.getParameter("username");
-         String password = request.getParameter("password");
-         if(username ==null && password==null){
-             request.setAttribute("usermessage","Username is empty!");
-             request.setAttribute("passmessage","Password is empty!");
-             request.getRequestDispatcher("view/login.jsp").forward(request, response);
-         }else if(username==null){
-             request.setAttribute("usermessage","Username is empty!");
-             request.getRequestDispatcher("view/login.jsp").forward(request, response);
-
-         }else if(password==null){
-             request.setAttribute("passmessage","Password is empty!");
-             request.getRequestDispatcher("view/login.jsp").forward(request, response);
-
-         }
+       
      
     }    
     
@@ -81,7 +67,21 @@ public class validateLoginFilter implements Filter {
             log("validateLoginFilter:doFilter()");
         }
         
-        doBeforeProcessing(request, response);
+         String username = request.getParameter("username");
+         String password = request.getParameter("password");
+         if(username ==null && password==null){
+             request.setAttribute("usermessage","Username is empty!");
+             request.setAttribute("passmessage","Password is empty!");
+             request.getRequestDispatcher("view/login.jsp").forward(request, response);
+         }else if(username==null){
+             request.setAttribute("usermessage","Username is empty!");
+             request.getRequestDispatcher("view/login.jsp").forward(request, response);
+
+         }else if(password==null){
+             request.setAttribute("passmessage","Password is empty!");
+             request.getRequestDispatcher("view/login.jsp").forward(request, response);
+
+         }
         
         Throwable problem = null;
         try {

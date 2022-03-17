@@ -5,7 +5,6 @@
  */
 package controller;
 
-import database.AccountDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,37 +13,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Account;
 
-
-public class logincontroller extends HttpServlet {
+/**
+ *
+ * @author Le Viet
+ */
+public class manageSpaController extends HttpServlet {
 
    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       Account a  = (Account)request.getSession().getAttribute("account");
+       String userlogin = a.getDisplayname();
+       request.setAttribute("userlogin", userlogin);
+       request.getRequestDispatcher("view/quanly.jsp").forward(request, response);
+       
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
-    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        AccountDBContext db = new AccountDBContext();
-        Account account = db.getAccount(username, password);
-        if(account == null)
-        {
-          request.getSession().setAttribute("account",null);
-          request.setAttribute("message","Login failed!");
-          request.setAttribute("username",username);
-          request.getRequestDispatcher("view/login.jsp").forward(request, response);
-        }
-        else
-        {
-            request.getSession().setAttribute("account", account);  
-            response.sendRedirect("quanly");          
-        }
-       
+        processRequest(request, response);
     }
 
     /**
