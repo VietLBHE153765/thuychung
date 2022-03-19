@@ -138,5 +138,37 @@ public class ProductDBContext extends DBContext{
         }
         return null ;
     }
-       
+    public ArrayList<Product> getRandomThreeProducts(){
+             ArrayList<Product> products = new ArrayList<>();
+        try {
+  
+            String sql = "SELECT top 4 [productID]\n" +
+                                    "      ,[productname]\n" +
+                                    "      ,[image]\n" +
+                                    "      ,[price]\n" +
+                                    "      ,[quantity]\n" +
+                                    "      ,[categoryPID]\n" +
+                                    "  FROM [Product]\n" +
+                                    "  ORDER BY NEWID()\n";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                 Product d = new Product();
+                d.setProductid(rs.getInt("productID"));
+                d.setProductname(rs.getString("productname"));
+                d.setImage(rs.getString("image"));
+                d.setPrice(rs.getInt("price"));
+                d.setQuantity(rs.getInt("quantity"));
+                CategoryProduct c = new CategoryProduct();
+                c.setCid(rs.getInt("categoryPID"));
+                d.setCateProduct(c);
+                products.add(d);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products ;
+    }   
 }

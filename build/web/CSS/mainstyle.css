@@ -90,3 +90,24 @@ and open the template in the editor.
 .diachicuoi h6{
     font-family: transform;
 }
+.card{
+    width: 80%;
+}
+#loginsanpham{
+     color: #f57b09;
+    padding-top:20px;
+    font-family: 'a';
+    font-size: 30px;
+    font-weight: 900;
+}
+.sanphammain{
+    background-image: url('../Img/hinhnensanpham.jpg');
+    height: 750px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+#xemthem{
+     font-family: transform;
+      font-size: 50px;
+     font-weight: 900;
+}

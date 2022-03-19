@@ -6,6 +6,7 @@
 package controller;
 
 import database.CategoryServiceDBContext;
+import database.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CategoryService;
+import model.Product;
 
 /**
  *
@@ -38,6 +40,9 @@ public class homeController extends HttpServlet {
           response.setCharacterEncoding("UTF-8");
           CategoryServiceDBContext db = new CategoryServiceDBContext();
           ArrayList<CategoryService> cateServices = db.getCateServices();
+          ProductDBContext pdb = new ProductDBContext();
+          ArrayList<Product> products = pdb.getRandomThreeProducts();
+          request.setAttribute("products", products);
           request.setAttribute("cateServices",cateServices);
           request.getRequestDispatcher("view/main.jsp").forward(request, response);
     }

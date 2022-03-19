@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
+                <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/sanphamstyle.css?v=1"  type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -140,9 +141,61 @@
                 </div>
             </div>        
         </div>
-        <%-- Hinh anh dich vu cua spa--%>
-        <div class= "container-fluid">
+        <%-- cac san pham chinh cua spa--%>
+        <div class= "container-fluid sanpham sanphammain">
             <%-- Cac san pham chinh--%> 
+            <center>
+                <span id="loginsanpham"> SẢN PHẨM CỦA SPA</span>
+                <div
+                                   class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
+                                   >
+                                   <c:forEach items="${requestScope.products}" var="p">
+                                       <div class="col-md-3 mb-5" >
+
+                                           <div class="card h-100">
+                                               <!-- Product image-->
+                                               <a href="${pageContext.request.contextPath}/chitietsanpham?id=${p.productid}">
+                                                   <img
+                                                       class="card-img-top"
+                                                       src="${pageContext.request.contextPath}${p.image}"
+                                                       alt="..."
+                                                       />
+                                               </a>
+                                               <!-- Product details-->
+                                               <div class="card-body p-4">
+                                                   <div class="text-center productname">
+                                                       <!-- Product name-->
+                                                       <h5 class="fw-bolder">${p.productname}</h5>
+                                                       <!-- Product reviews-->
+                                                       <div
+                                                           class="d-flex justify-content-center small text-warning mb-2"
+                                                           >
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                           <div class="bi-star-fill"></div>
+                                                       </div>
+                                                       <!-- Product price-->
+                                                       
+                                                       <div id="price">${p.price} (VND)</div>
+                                                   </div>
+                                               </div>
+                                               <!-- Product actions-->
+                                               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                   <div class="text-center">
+                                                       <a class="btn btn-outline-success mt-auto" href="addcart?Id=${p.productid}"
+                                                          >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
+                                                       >
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </c:forEach>
+                    <span id="xemthem"><a href="sanpham" class="btn btn-warning btn-block"><b style="color: red">XEM THÊM</b></a></span>
+                               </div>
+            </center>
+       
         </div>  
         
             <%-- footer--%>

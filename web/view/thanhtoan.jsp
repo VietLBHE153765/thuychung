@@ -55,7 +55,6 @@
 
         </div>
 
-
         <div class= "container-fluid thanhtoan " style="min-height: 750px">
                  <h3>THANH TOÁN</h3>
             <div class="row contain">
