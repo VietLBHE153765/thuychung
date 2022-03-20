@@ -24,16 +24,14 @@ public class EmployeeDBContext extends DBContext{
              ArrayList<Employee> employees = new ArrayList<>();
         try {
   
-            String sql = "SELECT [Employee].[employeeID]\n" +
+            String sql = "SELECT [employeeID]\n" +
                             "      ,[employeename]\n" +
                             "      ,[phonenumber]\n" +
                             "      ,[address]\n" +
-                            "      ,[username]\n" +
+                            "      ,[accountID]\n" +
                             "      ,[image]\n" +
-                            "	  ,positionname\n" +
-                            "	  ,facebook\n" +
-                            "  FROM [Employee] join [Employee Position] on Employee.employeeID = [Employee Position].employeeID\n" +
-                            "  join Position on [Employee Position].positionID = Position.positionID";
+                            "      ,[facebook]\n" +
+                            "  FROM [Employee]";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
@@ -44,9 +42,6 @@ public class EmployeeDBContext extends DBContext{
                 e.setAddress(rs.getString("address"));
                 e.setImage(rs.getString("image"));
                 e.setFacebook(rs.getString("facebook"));
-                Position p = new Position();
-                p.setPositionname(rs.getString("positionname"));
-                e.setPosition(p);
                 employees.add(e);
             }
             

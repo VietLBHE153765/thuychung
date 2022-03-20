@@ -17,10 +17,6 @@
         <servlet-class>controller.introduceController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>serviceController</servlet-name>
-        <servlet-class>controller.serviceController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>contactController</servlet-name>
         <servlet-class>controller.contactController</servlet-class>
     </servlet>
@@ -76,6 +72,10 @@
         <servlet-name>manageSpaController</servlet-name>
         <servlet-class>controller.manageSpaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>trainningController</servlet-name>
+        <servlet-class>controller.trainningController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -83,10 +83,6 @@
     <servlet-mapping>
         <servlet-name>introduceController</servlet-name>
         <url-pattern>/gioithieu</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>serviceController</servlet-name>
-        <url-pattern>/dichvu</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>contactController</servlet-name>
@@ -143,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>manageSpaController</servlet-name>
         <url-pattern>/quanly</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trainningController</servlet-name>
+        <url-pattern>/daotao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

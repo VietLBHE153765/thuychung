@@ -111,3 +111,15 @@ and open the template in the editor.
       font-size: 50px;
      font-weight: 900;
 }
+.all span{
+        font-family: 'a';
+        font-size: 30px;
+        font-weight: 900;
+        color: crimson;
+}
+.all h3{
+    font-family: 'a';
+        font-size: 20px;
+        font-weight: 900;
+        color: #f57b09;
+}

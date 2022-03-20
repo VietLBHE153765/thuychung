@@ -38,9 +38,9 @@
                         <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
                      <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/daotao">ĐÀO TẠO</a></li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
+                   <li class="col-md-2"><a href="${pageContext.request.contextPath}/login"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
 
             </div>
@@ -81,28 +81,23 @@
                 </div>
             </div>        
        </div>
-         <div class= "container-fluid doingunhanvien">
+         <div class= "container-fluid doingunhanvien" style=" min-height: 300px">
              <h1>Đội Ngũ Nhân Viên</h1>
-            <div class="row user">
-                <c:forEach items="${requestScope.employees}" var="c">
-                    <div class="col-sm-2 nhanvien">
-                        <div class="imgeuser">
+             <center>
+                  <div class="row user">
+                <c:forEach items="${employees}" var="c">
+                    <div class="col-md-2 nhanvien">
+                        <div>
                             <img src="${pageContext.request.contextPath}${c.image}" alt=""/>
                             <h6>${c.employeename}</h6>
                         </div>
-                     <div class="inforuser">
-                         <i class="fas fa-address-card"></i> ${c.employeename}<br>
-                        <h6>${c.position.positionname}</h6>
-                        <i class="fas fa-phone"> </i>${c.phonenumber}<br>
-                        <i class="fas fa-location"></i> ${c.address}<br>
-                        <a href="${c.facebook}"><i class="fa-brands fa-facebook-f"></i></a>  
-                     </div>
                      
                     </div>
                     
                 </c:forEach>
                     
-            </div>
+                </div>
+             </center>
             </div>     
    
              <%-- footer--%>

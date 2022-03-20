@@ -31,7 +31,6 @@
                 <img src="${pageContext.request.contextPath}/Img/logo.jpg" alt=""/>
             </div>
             <%-- Menu --%>
-
             <div class="menu col-md-8 ">
 
                 <ul class="row">

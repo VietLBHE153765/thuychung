@@ -38,9 +38,9 @@
                         <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
                      <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/daotao">ĐÀO TẠO</a></li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/login"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
 
             </div>

@@ -13,6 +13,7 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/daotao.css?v=1"  type="text/css"/> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
               integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,9 +36,9 @@
                         <a href="${pageContext.request.contextPath}/home">TRANG CHỦ </a>           
                     </li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/gioithieu">GIỚI THIỆU</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/dichvu">DỊCH VỤ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/daotao">ĐÀO TẠO</a></li>
                     <li class="col-md-2"><a href="${pageContext.request.contextPath}/sanpham">SẢN PHẨM</a></li>
-                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/lienhe">LIÊN HỆ</a></li>
+                    <li class="col-md-2"><a href="${pageContext.request.contextPath}/login"><i class="fas fa-user"></i> Login</a></li>
 
                 </ul>
 
@@ -49,7 +50,45 @@
                 </form>
             </div>
         </div>
-    
+                    <div class="cayla">
+                        <img src="Img/tuyensinh01.jpg" alt=""/>
+                    </div>
+          <%-- daotao--%>
+           <div style="min-height: 500px" class= "container-fluid all ">
+            <div class="container-fluid" >
+                <div class ="">
+                    <center>
+                           <span>Thông báo tuyển sinh học viên</span>
+                           <p> <b>Spa Thúy Chung</b> nhận đào tạo từ cơ bản đến chuyên sâu, nhận chuyển giao các công nghệ trị nám, tàn nhang... </p>
+                           <p>Học viên trực tiếp được giảng dạy tận tình với nghiệp vụ tay nghề lâu năm! </p>
+                           <p> Với lượng khách ổn định nên có nhiều cơ hội cho học viên được thực hành trên mẫu rất nhiều.
+                              Được cầm tay chỉ việc đến khi thành nghề với môi trường làm việc thân thiện</p>
+                           <p>Sau thời gian đào tạo có thể đăng ký làm ngay tại Spa </p>
+                           <h3>Thông tin chi tiết xin liên hệ số điện thoại:<b style="color: red"> 0963170199</b> <h3>
+                            <span>Một số hình ảnh đào tạo học viên tại Spa Thúy Chung</span>
+                            
+                              <div class="row imagedaotao1">
+                        <img class="col-sm-4" src="${pageContext.request.contextPath}/Img/daotaohocvien.jpg" alt=""/>
+                        <img class="col-sm-4" src="${pageContext.request.contextPath}/Img/daotaohocvien02.jpg" alt=""/>
+                        <img class="col-sm-4"src="${pageContext.request.contextPath}/Img/hoctaptaispa.jpg" alt=""/>
+                        
+                    </div>
+                      <div class="row imagedaotao2">
+                        <img class="col-sm-4" src="${pageContext.request.contextPath}/Img/nhanvienhoctap.jpg" alt=""/>
+                        <img class="col-sm-4" src="${pageContext.request.contextPath}/Img/nhanvienhoctap02.jpg" alt=""/>
+                        <img class="col-sm-4" src="${pageContext.request.contextPath}/Img/lamviec02.jpg" alt=""/>
+                        
+                    </div>   
+                     </center>
+                        
+                  
+                        
+                        
+                </div>
+            </div>        
+       </div> 
+            
+        
             
             
             
@@ -57,12 +96,9 @@
             
             
             
-            
-            
-            
-            
-            
-            
+                     <div class="cayla">
+                        <img src="Img/tuyensinh02.jpg" alt=""/>
+                    </div>   
             
         <%-- footer--%>
              <!--Footer starts here-->
