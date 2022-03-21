@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.Customer;
 import model.Order;
+import model.Product;
 
 /**
  *
@@ -41,6 +42,7 @@ public class checkoutController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        ProductDBContext db = new ProductDBContext();
          Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
         if(carts ==null){
             carts = new LinkedHashMap<>();
@@ -51,6 +53,9 @@ public class checkoutController extends HttpServlet {
             Integer productID = c.getKey();
             Cart cart = c.getValue();
             totalMoney += cart.getQuantity()* cart.getProduct().getPrice();
+            Product p =db.getProductByID(productID);
+            p.setQuantity(p.getQuantity() - cart.getQuantity());
+            db.updateQuantityProduct(p);
         }
         request.setAttribute("totalmoney", totalMoney);
         request.getSession().setAttribute("totalmoney", totalMoney);

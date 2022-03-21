@@ -4,6 +4,8 @@
     Author     : Le Viet
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -65,7 +67,13 @@
                 <div class ="col-sm-6 chitietsanpham">
                     <h1 >${product.productname}</h1>
                         <h4>Giá: ${product.price} (VNĐ)</h4>
-                    <div class=" row">
+                        <c:choose>
+                            <c:when test="${product.quantity ==0}">
+                                <center><h3 style="color: red"><b>ĐÃ HẾT HÀNG</b></h3></center>
+                                
+                            </c:when>
+                            <c:otherwise>
+                                <div class=" row">
                         
                           <div class=" col-md-6 card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
@@ -83,6 +91,8 @@
                                                </div>
                         
                      </div> 
+                            </c:otherwise>
+                        </c:choose>
                 </div>
             </div>        
          </div>

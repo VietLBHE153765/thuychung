@@ -54,7 +54,7 @@
         </div>
     
                
-                <div class= "container-fluid" style="min-height: 750px">
+                <div class= "container-fluid a" style="min-height: 600px">
                     <c:choose>
                         <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
                             <h4>Giỏ hàng của bạn đang trống</h4>

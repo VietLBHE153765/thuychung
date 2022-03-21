@@ -82,7 +82,7 @@
                             <td><img src="${pageContext.request.contextPath}${c.value.product.image}" alt="" width="100px"/></td>
                             <td>${c.value.product.price}</td>      
                             <td>
-                                <span><input onchange="this.form.submit()" type="number"  name="quantity" value="${c.value.quantity}"/></span>
+                                <span>${c.value.quantity}</span>
                             </td>
                             <td>${c.value.product.price * c.value.quantity}</td>
                            

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <filter>
-        <filter-name>validateLoginFilter</filter-name>
-        <filter-class>Validate.validateLoginFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>validateLoginFilter</filter-name>
-        <servlet-name>logincontroller</servlet-name>
-    </filter-mapping>
     <servlet>
         <servlet-name>CategoryServiceController</servlet-name>
         <servlet-class>controller.CategoryController</servlet-class>
@@ -76,6 +68,10 @@
         <servlet-name>trainningController</servlet-name>
         <servlet-class>controller.trainningController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logoutcontroller</servlet-name>
+        <servlet-class>controller.logoutcontroller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -143,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>trainningController</servlet-name>
         <url-pattern>/daotao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutcontroller</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

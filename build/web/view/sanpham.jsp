@@ -120,13 +120,25 @@
                                                    </div>
                                                </div>
                                                <!-- Product actions-->
-                                               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                               <c:choose>
+                                                   <c:when test="${p.quantity==0}">
+                                                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                   <div class="text-center">
+                                                       <h4 style="color: red"><b>HẾT HÀNG</b></h4>
+                                                   </div>
+                                               </div>
+                                                   </c:when>
+                                                   <c:otherwise>
+                                                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                    <div class="text-center">
                                                        <a class="btn btn-outline-success mt-auto" href="addcart?Id=${p.productid}"
                                                           >Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i></a
                                                        >
                                                    </div>
                                                </div>
+                                                   </c:otherwise>
+                                               </c:choose>
+                                               
                                            </div>
                                        </div>
                                    </c:forEach>

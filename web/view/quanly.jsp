@@ -14,6 +14,7 @@
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/quanly.css?v=1"  type="text/css"/> 
      
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
@@ -51,7 +52,18 @@
                 </form>
             </div>
         </div>
-    <span><h3><i class="fa-solid fa-user">${userlogin}</i></h3></span>
+                <div class=" container-fluid user">
+                    <div class="row">
+                        <div class="col-md-6">
+                         <center> <span><h3><i class="fa-solid fa-user"></i> ${userlogin}</h3></span></center>
+                        </div>
+                   
+                        <div class="col-md-6 logout"> 
+                        <center><a href="logout"><h4><i class="fas fa-sign-in-alt"></i> Đăng xuất</h4></a></center>
+                            
+                    </div>
+                    </div>
+                </div>
     <table border="2px" >
                     <caption>Danh sách công việc</caption>
                     <thead>
