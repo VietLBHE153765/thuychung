@@ -42,6 +42,7 @@ public class customeradvise extends HttpServlet {
             request.setAttribute("service",cs.getCategorysname());
             request.setAttribute("message", "Vui lòng kiểm tra lại thông tin của bạn");
             request.getRequestDispatcher("view/main.jsp").forward(request, response);
+            response.sendRedirect("home");
         }else {
              //add customer to database and return id of customer
             Customer cu = new Customer();
@@ -55,6 +56,7 @@ public class customeradvise extends HttpServlet {
             cadb.insertCustomerAdvise(customerId, categoryserviceID);
             request.setAttribute("messagethank", "Bạn đã đăng ký thành công! Nhân viên của chúng tôi sẽ sớm liên hệ tới quý khách!");
             request.getRequestDispatcher("view/main.jsp").forward(request, response);
+             response.sendRedirect("home");
             
         }
         

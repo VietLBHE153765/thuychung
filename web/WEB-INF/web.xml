@@ -72,6 +72,14 @@
         <servlet-name>logoutcontroller</servlet-name>
         <servlet-class>controller.logoutcontroller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createordercontroller</servlet-name>
+        <servlet-class>createordercontroller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listOrdercontroller</servlet-name>
+        <servlet-class>controller.listOrdercontroller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServiceController</servlet-name>
         <url-pattern>/categoryservice</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>logoutcontroller</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createordercontroller</servlet-name>
+        <url-pattern>/hoadon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listOrdercontroller</servlet-name>
+        <url-pattern>/danhsachdonhang</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

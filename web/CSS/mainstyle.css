@@ -123,3 +123,12 @@ and open the template in the editor.
         font-weight: 900;
         color: #f57b09;
 }
+.danhsachdonhang h1{
+    font-family: transform;
+      font-size: 50px;
+     font-weight: 900;
+}
+.danhsachdonhang{
+    padding-top: 50px;
+    padding-bottom: 30px;
+}

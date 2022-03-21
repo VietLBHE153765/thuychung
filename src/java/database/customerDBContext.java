@@ -9,9 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.CategoryProduct;
 import model.Customer;
+import model.Order;
 
 /**
  *
@@ -43,5 +46,35 @@ public class customerDBContext extends DBContext{
         }
  return 0;
  }
+    public ArrayList<Customer> getAllCustomer(){
+             ArrayList<Customer> customers = new ArrayList<>();
+        try {
+  
+            String sql = "SELECT c.[customerID]\n" +
+                                "      ,[name]\n" +
+                                "      ,[address]\n" +
+                                "      ,[phone]\n" +
+                                "	  ,orderID\n" +
+                                "  FROM [Customer] c join Orders o on c.customerID = o.customerID";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                Customer c = new Customer();
+                c.setId(rs.getInt("customerID"));
+                c.setName(rs.getString("name"));
+                c.setAddress(rs.getString("address"));
+                c.setPhone(rs.getString("phone"));
+                Order o = new Order();
+                o.setId(rs.getInt("orderID"));
+                c.setOrder(o);
+                customers.add(c);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(customerDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return customers ;
+    }
     
 }

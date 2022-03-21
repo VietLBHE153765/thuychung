@@ -14,6 +14,7 @@ public class Customer {
     private String name;
     private String phone;
     private String address;
+    private Order order;
 
     public String getName() {
         return name;
@@ -37,6 +38,22 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
     
 }

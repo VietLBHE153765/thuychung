@@ -1,6 +1,6 @@
 <%-- 
-    Document   : quanly
-    Created on : Mar 17, 2022, 11:33:42 PM
+    Document   : danhsachdonhang
+    Created on : Mar 21, 2022, 2:04:38 PM
     Author     : Le Viet
 --%>
 
@@ -14,7 +14,6 @@
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/mainstyle.css?v=1"  type="text/css"/> 
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/quanly.css?v=1"  type="text/css"/> 
      
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
@@ -52,70 +51,40 @@
                 </form>
             </div>
         </div>
-                <div class=" container-fluid user">
-                    <div class="row">
-                        <div class="col-md-6">
-                         <center> <span><h3><i class="fa-solid fa-user"></i> ${userlogin}</h3></span></center>
-                        </div>
-                   
-                        <div class="col-md-6 logout"> 
-                        <center><a href="logout"><h4><i class="fas fa-sign-in-alt"></i> Đăng xuất</h4></a></center>
-                            
-                    </div>
-                    </div>
-                </div>
-                        <div class="congviec">
-                             <center>
-        <table   style="min-height: 500px" border="2px" >
-              <span><h1>Danh sách công việc</h1></span>
+         
+                <div class="danhsachdonhang">
+            <center>
+                <h1>Danh sách đơn hàng</h1>
+                <table class="table table-striped">
                     <thead>
-                      <tr>
-                        <th scope="col">STT</th>
-                        <th scope="col">Công Việc</th>
-                        <th scope="col"></th>
-                      </tr>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên Khách Hàng</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Chi tiết đơn hàng</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td><a href="hoadon"><input type="button" value="TẠO HÓA ĐƠN" class="btn btn-success btn-lg"></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                       <td><a href="danhsachdonhang"><input type="button" value="DANH SÁCH ĐƠN HÀNG" class="btn btn-danger btn-lg"></a></td>
-                       
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td><a href="dangkyhocvien"><input type="button" value="DANH SÁCH ĐĂNG KÝ HỌC VIÊN" class="btn btn-warning btn-lg"></a></td>
-                      </tr>
-                       <tr>
-                        <th scope="row">4</th>
-                        <td><a href="dangkyhocvien"><input type="button" value="ĐƠN ĐĂNG KÝ TƯ VẤN" class="btn btn-primary btn-lg"></a></td>
-                      </tr>
+                        <c:forEach items="${customers}" var="c">
+                            <c:set var="count" value="${count + 1}" scope="page"/>
+
+                            <tr>
+                            <th scope="row">${count}</th>
+                            <td>${c.name}</td>
+                            <td>${c.address}</td>
+                            <td>${c.phone}</td>
+                            <td><a href="chitiet?id=${c.order.id}"> Chi tiết</a></td>
+                           </tr>
+                        </c:forEach>
                         
-                       <tr>
-                           <th scope="row">5</th>
-                            <td><a href="dangkyhocvien"><input type="button" value="KIỂM KÊ KHO HÀNG" class="btn btn-warning btn-lg"></a></td>                   
-                      </tr>
                     </tbody>
-                  </table>
-                 </center>   
-            
-                        </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        <%-- footer--%>
+                </table>
+
+            </center>
+        </div>
+        
+          <%-- footer--%>
              <!--Footer starts here-->
         <div class="footer">
 				

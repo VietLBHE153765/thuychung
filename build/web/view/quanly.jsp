@@ -64,8 +64,10 @@
                     </div>
                     </div>
                 </div>
-    <table border="2px" >
-                    <caption>Danh sách công việc</caption>
+                        <div class="congviec">
+                             <center>
+        <table   style="min-height: 500px" border="2px" >
+              <span><h1>Danh sách công việc</h1></span>
                     <thead>
                       <tr>
                         <th scope="col">STT</th>
@@ -85,25 +87,22 @@
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td><a href="dangkyhocvien"><input type="button" value="DANH SÁCH ĐĂNG KÝ HỌC VIÊN" class="btn btn-success btn-lg"></a></td>
+                        <td><a href="dangkyhocvien"><input type="button" value="DANH SÁCH ĐĂNG KÝ HỌC VIÊN" class="btn btn-warning btn-lg"></a></td>
                       </tr>
                        <tr>
                         <th scope="row">4</th>
-                        <td><a href="dangkyhocvien"><input type="button" value="ĐƠN ĐĂNG KÝ TƯ VẤN" class="btn btn-success btn-lg"></a></td>
+                        <td><a href="dangkyhocvien"><input type="button" value="ĐƠN ĐĂNG KÝ TƯ VẤN" class="btn btn-primary btn-lg"></a></td>
                       </tr>
                         
-                      <tr>
-                           <th scope="row">5</th>
-                            <td><a href="dangkyhocvien"><input type="button" value="ĐƠN ĐĂNG KÝ TƯ VẤN" class="btn btn-warning btn-lg"></a></td> 
-                          
-                      </tr>
                        <tr>
-                           <th scope="row">6</th>
+                           <th scope="row">5</th>
                             <td><a href="dangkyhocvien"><input type="button" value="KIỂM KÊ KHO HÀNG" class="btn btn-warning btn-lg"></a></td>                   
                       </tr>
                     </tbody>
-                  </table>   
+                  </table>
+                 </center>   
             
+                        </div>
             
             
             
